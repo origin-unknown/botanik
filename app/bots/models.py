@@ -4,7 +4,7 @@ import os, subprocess, signal
 
 class Bot(db.Model):
     __tablename__ = 'bots'
-
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String,
         unique=True,
