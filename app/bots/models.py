@@ -1,6 +1,6 @@
 from .. import db
 
-import os, subprocess
+import os, subprocess, signal
 
 class Bot(db.Model):
     __tablename__ = 'bots'
@@ -36,8 +36,9 @@ class Bot(db.Model):
                 command_line,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                stdin=subprocess.PIPE,
                 shell=True,
+                # Set the session ID to handle child processes.
+                preexec_fn=os.setsid,
             )
             self.pid = proc.pid
             db.session.commit()
@@ -47,7 +48,10 @@ class Bot(db.Model):
         '''Terminate the associated subprocess based on its id.'''
         if self.is_running:
             try:
-                os.kill(self.pid, 9)
+                # Tell the application to exit cleanly.
+                os.killpg(os.getpgid(self.pid), signal.SIGTERM)
+                # Optionally, wait a while and send SIGKILL to make sure the
+                # process ends.
             except OSError:
                 pass
         self.pid = 0
