@@ -18,10 +18,7 @@ lib/
 lib64/
 parts/
 sdist/
-
 # var/
-*.sqlite
-
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
@@ -130,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Custom
+*.sqlite
+sample.txt
