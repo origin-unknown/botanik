@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>New Bot</title>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <ul class="nav mb-3">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('.index') }}">Index</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{{ url_for('.create') }}"
+          >New</a>
+        </li>
+      </ul>
+      <form method="post">
+        <div class="mb-3 row">
+          <label for="name" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="name"
+              placeholder="Untitled Bot"
+              class="form-control"
+              id="name"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="command" class="col-sm-2 col-form-label">Command</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              name="command"
+              placeholder="python3 /path/to/app.py arg0 arg2"
+              class="form-control"
+              id="command"
+            />
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="w-100 btn btn-primary btn-block">Add Bot</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  </body>
+</html>
