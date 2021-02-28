@@ -20,7 +20,7 @@ parts/
 sdist/
 
 # var/
-var/app-instance/development.sqlite
+*.sqlite
 
 wheels/
 pip-wheel-metadata/
