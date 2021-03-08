@@ -4,7 +4,7 @@ import os, subprocess, signal
 
 class Bot(db.Model):
     __tablename__ = 'bots'
-    
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String,
         unique=True,
@@ -35,7 +35,7 @@ class Bot(db.Model):
             proc = subprocess.Popen(
                 command_line,
                 stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
                 shell=True,
                 # Set the session ID to handle child processes.
                 preexec_fn=os.setsid,
